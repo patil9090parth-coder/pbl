@@ -11,7 +11,6 @@ from eda_app import run_eda_app
 html_temp = """
 			<div style="background-color:#8A9A5B;padding:10px;border-radius:10px">
 			<h1 style="color:white;text-align:center;"> Real Estate Price Prediction</h1>
-			<h3 style="color:white;text-align:center;"> Presented by : Shanu Halli </h3>
 			</div>
 			"""
 
@@ -50,22 +49,8 @@ def main():
 		st.subheader("Data points which is working on the project :")
 		st.components.v1.html(html_data,height=500)
 		
-		st.subheader("About :")
 		
-		socials = ["LinkedIn", "Github", "GMail"]
-		linkedin = "https://www.linkedin.com/in/hallishanu"
-		github = "https://github.com/shanuhalli"
-		mail = "shanuhalli@gmail.com"
 		
-		with st.expander("Check my Socials Links"):
-			a = st.selectbox("Socials", socials)
-			if a =="LinkedIn":
-				st.write(linkedin)
-			elif a =="Github":
-				st.write(github)
-			elif a=="GMail":
-				st.write(mail)
-
 		st.write("### Thanks You... ")
 
 main()

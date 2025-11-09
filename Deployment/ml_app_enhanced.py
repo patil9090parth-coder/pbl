@@ -19,9 +19,12 @@ class RealEstatePredictor:
         self.feature_columns = []
         self.is_trained = False
     
-    def load_data(self, filepath="Final_Project.csv"):
+    def load_data(self, filename="Final_Project.csv"):
         """Load and validate data"""
         try:
+            # Construct absolute path to the CSV file
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            filepath = os.path.join(script_dir, filename)
             self.df = pd.read_csv(filepath)
             print(f"✅ Loaded {len(self.df)} property records")
             return True

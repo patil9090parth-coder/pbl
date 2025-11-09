@@ -6,8 +6,14 @@ import os
 
 # Load data and model with error handling
 try:
-    df = pd.read_csv("Final_Project.csv")
-    with open('regression_model.pkl', 'rb') as f:
+    # Construct absolute path to the CSV file
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    csv_path = os.path.join(script_dir, "Final_Project.csv")
+    df = pd.read_csv(csv_path)
+    
+    # Construct absolute path to the model file
+    model_path = os.path.join(script_dir, "regression_model.pkl")
+    with open(model_path, 'rb') as f:
         reg = pickle.load(f)
 except FileNotFoundError as e:
     st.error(f"Error loading files: {e}")

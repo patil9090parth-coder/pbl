@@ -1,12 +1,17 @@
 import pandas as pd
 from PIL import Image
 import streamlit as st
+import os
 
 def run_eda_app():
 	st.subheader("Real Estate : Data Analysis")
 
 	submenu = st.sidebar.selectbox("Submenu", ["Descriptive", "Plots"])
-	df = pd.read_csv("Final_Project.csv")
+	
+	# Construct absolute path to the CSV file
+	script_dir = os.path.dirname(os.path.abspath(__file__))
+	csv_path = os.path.join(script_dir, "Final_Project.csv")
+	df = pd.read_csv(csv_path)
 
 	if submenu == "Descriptive":
 		img1 = Image.open(r"IMG\Real_Estate.jpg")
